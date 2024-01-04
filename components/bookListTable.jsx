@@ -2,7 +2,6 @@ import Link from "next/link";
 import DeleteBook from "./deleteBook";
 import MyButton from "./button";
 import LoadingIndicator from "./pageLoading";
-import { getAllBooks } from "../prisma/book";
 
 const getAllBooks = async () => {
   const response = await fetch("https://wzdata-three.vercel.app/api/book", {
