@@ -1,8 +1,4 @@
 "use client";
-// import { storage } from "@/app/firebase";
-// import { revalidateBookList } from "@/app/serverAction/createBookAction";
-// import MyButton, { Button } from "@/components/button";
-// import MyModal from "@/components/modal";
 import axios from "axios";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import Image from "next/image";

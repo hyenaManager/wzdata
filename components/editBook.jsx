@@ -29,7 +29,10 @@ export default function EditBook({ book }) {
       pu_id: book.publisher_id,
     })
       .then(() => router.push("https://wzdata-three.vercel.app/book_list"))
-      .catch(() => setIsError(true));
+      .catch(() => {
+        setIsError(true);
+        setIsSaving(false);
+      });
   };
   async function handleUploadImageToFirebase() {
     const fileName = `wzImg/${image?.name + v4()}`;
