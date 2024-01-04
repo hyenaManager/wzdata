@@ -41,11 +41,21 @@ export async function create_book(cover_photo,contentOwnerName,publisherName,nam
       }
 }
 
-export async function delete_book(book_id){
+export async function delete_book(book_id,co_id,pu_id){
     try {
         await prisma.tbl_book.delete({
             where:{
                 idx:book_id
+            }
+        })
+        await prisma.publisher.delete({
+            where:{
+                idx:parseInt(pu_id)
+            }
+        })
+        await prisma.content_owner.delete({
+            where:{
+                idx:parseInt(co_id)
             }
         })
     } catch (error) {
@@ -67,6 +77,23 @@ export async function editBook(book_id,new_name,new_cover_photo,content_owner_id
             }
         })
         return "success"
+    } catch (error) {
+        return error
+    }
+}
+
+export async function allPublisher(){
+    try {
+        return await prisma.publisher.findMany()
+
+    } catch (error) {
+        return error
+    }
+}
+
+export async function allContentOwer(){
+    try {
+        return await prisma.content_owner.findMany()
     } catch (error) {
         return error
     }

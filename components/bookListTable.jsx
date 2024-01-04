@@ -1,6 +1,7 @@
 import Link from "next/link";
 import DeleteBook from "./deleteBook";
 import MyButton from "./button";
+import LoadingIndicator from "./pageLoading";
 //import { revalidateBookList } from "@/app/serverAction/createBookAction";
 
 const getAllBooks = async () => {
@@ -24,7 +25,9 @@ export default async function BookListTable() {
           href={"create_book"}
           className=" bg-green-400 rounded-md p-2  px-4 text-xl text-white"
         >
-          create book
+          <LoadingIndicator>
+            <lable>create book</lable>
+          </LoadingIndicator>
         </Link>
       </section>
       <h1 className=" text-2xl font-bold w-[80%] text-start">Book list</h1>
@@ -61,15 +64,21 @@ export default async function BookListTable() {
                 {book.created_timetick.toLocaleString().split("T")[0]}
               </td>
               <td className=" bg-yellow-200 text-center py-4 cursor-pointer">
-                <DeleteBook bookId={book.idx} />
+                <DeleteBook
+                  bookId={book.idx}
+                  co_id={book.co_id}
+                  pu_id={book.publisher_id}
+                />
               </td>
               <td className=" bg-yellow-200 text-center py-4 cursor-pointer">
-                <Link href={`book_list/${book.idx}`}>
-                  <MyButton
-                    buttonName={"edit"}
-                    className=" hover:bg-green-500"
-                  />
-                </Link>
+                <LoadingIndicator>
+                  <Link href={`book_list/${book.idx}`}>
+                    <MyButton
+                      buttonName={"edit"}
+                      className=" hover:bg-green-500"
+                    />
+                  </Link>
+                </LoadingIndicator>
               </td>
             </tr>
           ))}

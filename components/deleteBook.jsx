@@ -1,22 +1,31 @@
 "use client";
 
 import { handleDeleteBook } from "../app/serverAction/deleteAction";
-//import { handleDeleteBook } from "@/app/serverAction/deleteAction";
 import MyButton, { Button } from "./button";
 import MyModal from "./modal";
 import { useState } from "react";
 
-export default function DeleteBook({ bookId }) {
+export default function DeleteBook({ bookId, co_id, pu_id }) {
   const [showModal, setShowModal] = useState(false);
   const [deleting, setDeleting] = useState(false);
   const [isError, setIsError] = useState(false);
+  const handleDeleting = async () => {
+    try {
+      setDeleting(true);
+      console.log("it reached here");
+      handleDeleteBook(bookId, co_id, pu_id);
+      setShowModal(false);
+    } catch (error) {
+      setShowModal(false);
+      setDeleting(false);
+      setIsError(true);
+    }
+  };
   return (
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        console.log("it reached here");
-        handleDeleteBook(bookId);
-        setShowModal(false);
+        handleDeleting();
       }}
     >
       <MyButton
