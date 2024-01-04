@@ -15,7 +15,7 @@ export default function UploadBookImage({ setImage, book }) {
         src={coverImage ? URL.createObjectURL(coverImage) : book.cover_photo}
         width={400}
         height={400}
-        className=" h-[300px] w-[300px] rounded-full object-cover bg-white"
+        className=" h-[300px] z-20 w-[300px] rounded-full object-cover bg-white"
         alt="image"
       />
 
@@ -27,6 +27,7 @@ export default function UploadBookImage({ setImage, book }) {
         alt="edit"
         className=" w-10 h-10 absolute top-0 right-0 cursor-pointer"
       />
+      <h3 className=" absolute top-[50] right-[50]">Loading...</h3>
       <input
         type="file"
         accept="image/*"
