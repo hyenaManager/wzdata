@@ -30,15 +30,18 @@ export default function CreateNow() {
 
   const createBook = async (url) => {
     console.log("creating: ", url);
-    const response = await axios.post("http://localhost:3000/api/book/", {
-      contentOwner: contentOwner,
-      bookName: bookName,
-      publisher: publisher,
-      coverImage: url,
-    });
+    const response = await axios.post(
+      "https://wzdata-three.vercel.app/api/book/",
+      {
+        contentOwner: contentOwner,
+        bookName: bookName,
+        publisher: publisher,
+        coverImage: url,
+      }
+    );
     if (response.status === 200) {
       revalidateBookList();
-      router.push("http://localhost:3000/book_list");
+      router.push("https://wzdata-three.vercel.app/book_list");
       console.log("end");
     } else {
       setSubmiting(false);
