@@ -6,7 +6,7 @@ import LoadingIndicator from "./pageLoading";
 const getAllBooks = async () => {
   const response = await fetch("https://wzdata-three.vercel.app/api/book", {
     next: { tags: ["allbook"] },
-    cache: "default",
+    cache: "force-cache",
   });
   if (response.ok) {
     return response.json();
