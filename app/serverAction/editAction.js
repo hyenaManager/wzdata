@@ -1,11 +1,11 @@
 "use server";
 
 
+
 import { revalidateTag } from "next/cache";
 import prisma from "../../prisma/client";
 
 export async function edit_book(newBookData){
-    "use server";
     console.log(newBookData," new book data ");
     try {
         await prisma.publisher.update({

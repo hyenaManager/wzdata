@@ -5,7 +5,7 @@ import LoadingIndicator from "./pageLoading";
 //import { revalidateBookList } from "@/app/serverAction/createBookAction";
 
 const getAllBooks = async () => {
-  const response = await fetch("http://localhost:3000/api/book", {
+  const response = await fetch(process.env.URL + "/api/book", {
     next: { tags: ["allbook"] },
     cache: "default",
   });
