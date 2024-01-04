@@ -35,6 +35,9 @@ export default function EditBook({ book }) {
       });
   };
   async function handleUploadImageToFirebase() {
+    if (!image) {
+      return handleSave(book.cover_photo);
+    }
     const fileName = `wzImg/${image?.name + v4()}`;
     const imageRef = ref(storage, fileName);
     const uploadTask = uploadBytesResumable(imageRef, image);
