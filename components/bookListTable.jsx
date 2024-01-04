@@ -2,19 +2,20 @@ import Link from "next/link";
 import DeleteBook from "./deleteBook";
 import MyButton from "./button";
 import LoadingIndicator from "./pageLoading";
+import { getAllBooks } from "../prisma/book";
 //import { revalidateBookList } from "@/app/serverAction/createBookAction";
 
-const getAllBooks = async () => {
-  const response = await fetch(process.env.URL + "/api/book", {
-    next: { tags: ["allbook"] },
-    cache: "default",
-  });
-  if (response.ok) {
-    return response.json();
-  } else {
-    return new Error(response.statusText);
-  }
-};
+// const getAllBooks = async () => {
+//   const response = await fetch(process.env.URL + "/api/book", {
+//     next: { tags: ["allbook"] },
+//     cache: "default",
+//   });
+//   if (response.ok) {
+//     return response.json();
+//   } else {
+//     return new Error(response.statusText);
+//   }
+// };
 
 export default async function BookListTable() {
   const books = await getAllBooks();
