@@ -25,7 +25,7 @@ export default function EditBook({ book }) {
       co_id: book.co_id,
       pu_id: book.publisher_id,
     })
-      .then(() => router.push("http://localhost:3000/book_list"))
+      .then(() => router.push("https://wzdata-three.vercel.app/book_list"))
       .catch(() => setIsError(true));
   };
   return (
