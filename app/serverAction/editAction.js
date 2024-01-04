@@ -29,7 +29,8 @@ export async function edit_book(newBookData){
                 idx:newBookData.idx
             },
             data:{
-                bookname:newBookData.name
+                bookname:newBookData.name,
+                cover_photo:newBookData.coverImage
             }
         })
         revalidateTag("allbook")

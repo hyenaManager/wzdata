@@ -25,7 +25,7 @@ export default async function BookListTable() {
           className=" bg-green-400 rounded-md p-2  px-4 text-xl text-white"
         >
           <LoadingIndicator>
-            <lable>create book</lable>
+            <label>create book</label>
           </LoadingIndicator>
         </Link>
       </section>

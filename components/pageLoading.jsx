@@ -10,7 +10,7 @@ export default function LoadingIndicator({ children }) {
     <>
       {showLoading && (
         <div className=" absolute top-1 right-1 flex justify-center animate-pulse items-center flex-row">
-          <Image src={"/book.svg"} alt="book" width={100} height={100} />
+          <Image src={"/book.svg"} alt="book" width={70} height={70} />
           <h4 className=" text-2xl text-white font-bold">Loading</h4>
         </div>
       )}
